@@ -32,6 +32,7 @@ services:
 
   webapp_server:
     build: ./xtreme_alpha/
+    restart: always
     container_name: xtreme_server
     environment:
       TZ: "Asia/Tokyo"
@@ -55,6 +56,7 @@ services:
   
   webapp_frontend:
     build: ./xtreme-frontend/
+    restart: always
     container_name: xtreme_frontend
     tty: true
     ports:
