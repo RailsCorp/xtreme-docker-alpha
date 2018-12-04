@@ -58,11 +58,13 @@ services:
     build: ./xtreme-frontend/
     restart: always
     container_name: xtreme_frontend
+    privileged: true #特権モード
     tty: true
     ports:
       - "3001:3000"
     volumes:
-      - frontend-sync:/xtreme_frontend
+      - frontend-sync:/home/xtreme_frontend
+    command: yarn dev
 volumes:
   server-sync:
     external: true
