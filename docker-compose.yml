@@ -29,6 +29,12 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
+  
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    command: --smallfiles
 
   webapp_server:
     build: ./xtreme_alpha/
@@ -44,6 +50,7 @@ services:
       - db
       - redis
       - elastic-search
+      - mongodb
     ports:
       - "4000:3000"
     volumes:
